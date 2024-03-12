@@ -1,6 +1,6 @@
 import mine from './mine';
 
-function buildMerkleTree(hashes: Array<string>): Array<string> {
+function buildMerkleTree(hashes: Array<string>, nonce:number): Array<string> {
 	if (hashes.length === 1) {
 		return hashes;
 	}
@@ -17,14 +17,14 @@ function buildMerkleTree(hashes: Array<string>): Array<string> {
         console.log('hashA: ', hashA);
         console.log('hashB: ', hashB);
 
-        const hash = mine(hashA, hashB);
+        const hash = mine(hashA, nonce, hashB);
         newBranch.push(hash);
     }
     if (overflow) {
         newBranch.push(overflow);
     }
     console.log('ADDED', newBranch);
-    return buildMerkleTree(newBranch);
+    return buildMerkleTree(newBranch, nonce);
 }
 
 export default buildMerkleTree;

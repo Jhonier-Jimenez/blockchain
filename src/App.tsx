@@ -10,6 +10,8 @@ function App() {
     fetchData();
   }, []);
 
+  let nonce = 0;
+
   function fetchData() {
     try {
       let hashes = transformTransactions(transactions, "1");
@@ -17,7 +19,7 @@ function App() {
       // despues de la primer iteracion
       // [tx1Nounce1, tx2Nounce1, tx3Nounce1]
 
-      const rootHash = buildMerkleTree(hashes);
+      const rootHash = buildMerkleTree(hashes, nonce);
       console.log("ROOT HASH", rootHash[0]);
     } catch (error) {
       console.error("Error fetching data:", error);

@@ -1,8 +1,8 @@
 import { sha256 } from "js-sha256";
 
-function mine(leftData: string, rightData: string) {
+function mine(leftData: string, nonce:number, rightData: string) {
 
-  let nonce = 0;
+  
   let valid = false;
   
 
