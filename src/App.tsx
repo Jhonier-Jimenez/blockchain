@@ -1,21 +1,24 @@
 import "./App.css";
 import Block from "./components/Block";
 import { transactions } from "./data/data";
-import buildMerkleTreeBase from "./functions/buildMerkleTreeBaseHash";
+import buildMerkleTree from "./functions/buildMerkleTree";
 import { useEffect } from "react";
+import transformTransactions from "./functions/transformTransactions";
 
 function App() {
   useEffect(() => {
     fetchData();
   }, []);
 
-   function fetchData() {
+  function fetchData() {
     try {
-      console.log("BUILDING TREE");
-      
-      const merkleTreeBase =  buildMerkleTreeBase(transactions, "1");
-      console.log("MERKLE BASE", merkleTreeBase);
+      let hashes = transformTransactions(transactions, "1");
+      // [1, tx1, 1, tx2, 1, tx3]
+      // despues de la primer iteracion
+      // [tx1Nounce1, tx2Nounce1, tx3Nounce1]
 
+      const rootHash = buildMerkleTree(hashes);
+      console.log("ROOT HASH", rootHash[0]);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
