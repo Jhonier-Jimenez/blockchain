@@ -1,35 +1,37 @@
 import "./App.css";
 import Block from "./components/Block";
-import { transactions } from "./data/data";
-import buildMerkleTree from "./functions/buildMerkleTree";
-import { useEffect } from "react";
-import transformTransactions from "./functions/transformTransactions";
+import Typography from "@mui/material/Typography";
 
 function App() {
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  let nonce = 0;
-
-  function fetchData() {
-    try {
-      let hashes = transformTransactions(transactions, "1");
-      // [1, tx1, 1, tx2, 1, tx3]
-      // despues de la primer iteracion
-      // [tx1Nounce1, tx2Nounce1, tx3Nounce1]
-
-      const rootHash = buildMerkleTree(hashes, nonce);
-      console.log("ROOT HASH", rootHash[0]);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
-
   return (
     <div className="App">
-      Learn React
-      <Block blockNumber="1" prevHash="2" />
+      <Typography variant="h2" component="h1" gutterBottom color="primary">
+        Blockchain demo
+      </Typography>
+      <Block
+        blockNumber="1"
+        prevHash="0000000000000000000000000000000000000000000000000000000000000000
+        "
+        nonce={0}
+        imageURL="https://pintu-academy.pintukripto.com/wp-content/uploads/2022/08/Perkembangan-blockchain-dari-masa-ke-masa.png"
+        peerNumber="1"
+      />
+      <Block
+        blockNumber="1"
+        prevHash="0000000000000000000000000000000000000000000000000000000000000000
+        "
+        nonce={100000}
+        imageURL="https://www.doubloin.com/wp-content/uploads/2023/06/reset-bitcoin-core-wallet.webp"
+        peerNumber="2"
+      />
+      <Block
+        blockNumber="1"
+        prevHash="0000000000000000000000000000000000000000000000000000000000000000
+        "
+        nonce={1000000}
+        imageURL="https://cryptwerk.com/upload/posts/5/e/8/5e8bd7f377998077242b67074cee9fdc.png"
+        peerNumber="3"
+      />
     </div>
   );
 }
