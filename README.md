@@ -1,5 +1,6 @@
 # Proyecto Blockchain
 
+La aplicación se encuentra deplegada, y puede visualizarla en [blockchain-jhonier-jimenez](https://blockchain-jhonier-jimnezs-projects.vercel.app/)
 ## **1. Introducción**
 Este proyecto contiene la construcción de una Blockchain a partir de unas transacciones determinadas.
 
@@ -21,7 +22,7 @@ El proyecto tiene 3 funciones clave:
 
 - buildMerkleTree: Es una función recursiva, en cada iteración, se recibe un arreglo de strings, y un nonce base con los que se construye el árbol de Merkle utilizando la función mine en cada una de las hojas
 
-### **3 Instrucciones para ejecutar el proyecto**
+### **3 Instrucciones para ejecutar el proyecto localmente**
 
 - Descárgalo o clonalo usando git clone
 - ejecuta npm install
