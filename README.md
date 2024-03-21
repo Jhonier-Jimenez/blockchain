@@ -1,4 +1,4 @@
-# Proyecto sustituto Modelos 1
+# Proyecto Blockchain
 
 ## **1. Introducción**
 Este proyecto contiene la construcción de una Blockchain a partir de unas transacciones determinadas.
